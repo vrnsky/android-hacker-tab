@@ -1,11 +1,19 @@
 package my.edu.stc.hackertab
 
 import android.os.Bundle
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.snackbar.Snackbar
-import androidx.appcompat.app.AppCompatActivity
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import my.edu.stc.hackertab.model.Repository
+import my.edu.stc.hackertab.service.GithubService
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,6 +26,27 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show()
         }
+
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://gtrend.yapie.me")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val service = retrofit.create(GithubService::class.java)
+        val call = service.getRepositories("java", "english", "")
+        val repositories: ArrayList<Repository> = ArrayList()
+
+        call.enqueue(object: Callback<List<Repository>> {
+            override fun onFailure(call: Call<List<Repository>>, t: Throwable) {
+                Log.d("FAILED RESPONSE", t.message.toString())
+            }
+
+            override fun onResponse(call: Call<List<Repository>>, response: Response<List<Repository>>) {
+                response.body()?.forEach { repo -> repositories.add(repo);
+                }
+            }
+        })
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
