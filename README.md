@@ -1,4 +1,7 @@
-![demo](./img/demo.gif)
+
+<div align="center">
+  <img src="./img/demo.gif"/>
+</div>
 
 <h1 align="center">Android Hacker Tab</h1>
 
