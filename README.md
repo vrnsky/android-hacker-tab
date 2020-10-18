@@ -24,8 +24,9 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
-- [Deployment](#deployment)
+- [Running the tests](#tests)
 - [Usage](#usage)
+- [Deployment](#deployment)
 - [Built Using](#built_using)
 - [TODO](../TODO.md)
 - [Authors](#authors)
@@ -41,29 +42,31 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them.
+What things you need to get the app up and running.
 
-TODO
-
-### Installing
-
-TODO
+- Android Studio
+- Minimun SDK version 21
+- Target SDK version 30
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
-TODO
+All the test will be located at `/app/src/test`, if you would like to create or run the test, you may refer to [https://developer.android.com/studio/test](https://developer.android.com/studio/test) for more information
 
 ## 🎈 Usage <a name="usage"></a>
 
-TODO
+As shown on the demo, all the trending repositories will be listed out!
+
+There will be filter functions on the top bar, do feel free to adjust to your own preferences!
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-Add additional notes about how to deploy this on a live system.
+To publish this app, you will need to sign it and have a Google Play Developer account, for more information, you may refer to [https://developer.android.com/studio/publish/app-signing](https://developer.android.com/studio/publish/app-signing)
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
-TODO
+- Kotlin
+- Android Studio
+- [https://github.com/pupubird/get-github-trending](https://github.com/pupubird/get-github-trending) for REST API
 
 ## ✍️ Authors <a name = "authors"></a>
 
